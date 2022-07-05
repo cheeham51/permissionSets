@@ -37,15 +37,14 @@ func TestTerraformAwsExample(t *testing.T) {
 		TerraformDir: "../",
 
 		// Variables to pass to our Terraform code using -var options
-		// Vars: map[string]interface{}{
-		// 	"instance_name": expectedName,
-		// 	"instance_type": instanceType,
-		// },
+		Vars: map[string]interface{}{
+			"sso_instance_arn": "arn:aws:sso:::instance/ssoins-7223a5d8a0fd9253",
+		},
 
 		// Environment variables to set when running Terraform
-		// EnvVars: map[string]string{
-		// 	"AWS_DEFAULT_REGION": awsRegion,
-		// },
+		EnvVars: map[string]string{
+			"AWS_DEFAULT_REGION": "us-east-1",
+		},
 	})
 
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
